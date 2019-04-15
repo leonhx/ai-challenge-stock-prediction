@@ -16,6 +16,9 @@
 1. `group`和`era`字段应该都比较重要，尤其是`group`字段（测试集里也有此字段）
 1. 特征可能是时序的
 1. pseudo labeling
+1. RNN
+1. Attention
+1. CNN底层特征 + RNN
 
 ## 小数据集上结果的稳定性
 
