@@ -2,6 +2,11 @@
 
 比赛网站：[https://challenger.ai/competition/trendsense](https://challenger.ai/competition/trendsense)
 
+## TODO
+
+1. 实现交叉验证
+1. `group`字段做embedding
+
 ## 思路
 
 1. 聚类
