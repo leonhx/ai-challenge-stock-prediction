@@ -28,17 +28,17 @@ def res_block(inputs, filters, kernel_size, reuse=False, name='res'):
                              activation=tf.nn.relu,
                              kernel_initializer=xavier_norm_initializer,
                              name='%s_conv1' % name, reuse=reuse)
-    conv2 = tf.layers.conv1d(inputs, filters, kernel_size,
+    conv2 = tf.layers.conv1d(conv1, filters, kernel_size,
                              padding='same',
                              activation=tf.nn.relu,
                              kernel_initializer=xavier_norm_initializer,
                              name='%s_conv2' % name, reuse=reuse)
-    conv3 = tf.layers.conv1d(inputs, filters, kernel_size,
+    conv3 = tf.layers.conv1d(conv2, filters, kernel_size,
                              padding='same',
                              activation=tf.nn.relu,
                              kernel_initializer=xavier_norm_initializer,
                              name='%s_conv3' % name, reuse=reuse)
-    return tf.add(conv1, conv3)
+    return tf.add(inputs, conv3)
 
 def build_graph(training=True, reuse=False):
     X_0 = tf.expand_dims(X_placeholder, 2)
