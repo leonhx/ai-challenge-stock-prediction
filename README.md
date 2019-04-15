@@ -6,6 +6,7 @@
 
 1. 实现交叉验证
 1. `group`字段做embedding
+1. 加上tensorboard summary打点
 
 ## 思路
 
