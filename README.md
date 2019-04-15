@@ -27,6 +27,7 @@
 ## 小数据集上结果的稳定性
 
 1. Dropout
+1. CNN如果在最后不要dense layer、直接global average pooling的话，试试先在这些filters上面做dropout
 1. Bagging
 1. Contractive AutoEncoder预训练 + 微调
 1. VAE预训练 + 微调
