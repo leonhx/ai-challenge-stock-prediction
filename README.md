@@ -5,6 +5,7 @@
 ## TODO
 
 1. experiment接口：https://mp.weixin.qq.com/s/qGe37OY_Iy9Qr9Rabpv7CA
+1. 尝试PyTorch
 1. 实现交叉验证
 1. `group`字段做embedding
 1. 加上tensorboard summary打点
