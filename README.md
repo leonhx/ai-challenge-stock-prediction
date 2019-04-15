@@ -16,3 +16,14 @@
 1. `group`和`era`字段应该都比较重要，尤其是`group`字段（测试集里也有此字段）
 1. 特征可能是时序的
 1. pseudo labeling
+
+## 小数据集上结果的稳定性
+
+1. Dropout
+1. Bagging
+1. Contractive AutoEncoder预训练 + 微调
+1. VAE预训练 + 微调
+1. Jacobian矩阵F范数作为正则项
+1. CAE + VAE
+1. 原始数据加入噪声（目的：Data Augmentation或者提高模型鲁棒性）
+1. 权重加噪声
