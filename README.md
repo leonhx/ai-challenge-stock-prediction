@@ -19,6 +19,10 @@
 1. RNN
 1. Attention
 1. CNN底层特征 + RNN
+1. DenseNet (Densely Connected Convolutional Networks，ResNet的求和换成concat)
+1. Bottleneck (of CNN, mentioned in fastai course before,上面那篇论文里也用到了，好像是1 * 1卷积、减少维数、增加filter数量)
+1. TensorBoard监控中间隐藏层的值、梯度，看是否需要加batch norm
+1. 最后不要dense layer，直接global average pooling试试看
 
 ## 小数据集上结果的稳定性
 
