@@ -37,5 +37,4 @@
 1. 加入`group`字段时，最好在没有加这个字段的基础上微调
 1. 贝叶斯模型在小数据集上表现比较好
 1. 置信区间比点估计好
-1. 论文：Improving neural networks by preventing co-adaptation of feature detectors
 1. 论文：Training Neural Networks with Very Little Data -- A Draft
