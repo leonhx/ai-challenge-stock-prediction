@@ -103,3 +103,5 @@ ENV/
 # raw data
 data/
 *.zip
+
+.vscode
