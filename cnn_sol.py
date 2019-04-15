@@ -2,11 +2,13 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
-train_full = pd.read_csv('data/20170916/ai_challenger_stock_train_20170916/stock_train_data_20170916.csv')
-test_full = pd.read_csv('data/20170916/ai_challenger_stock_test_20170916/stock_test_data_20170916.csv')
+version = '20170923'
+train_full = pd.read_csv('data/{0}/ai_challenger_stock_train_{0}/stock_train_data_{0}.csv'.format(version))
+test_full = pd.read_csv('data/{0}/ai_challenger_stock_test_{0}/stock_test_data_{0}.csv'.format(version))
 
-train_data = train_full[train_full['era'] <= 15]
-val_data = train_full[train_full['era'] > 15]
+th = 16
+train_data = train_full[train_full['era'] <= th]
+val_data = train_full[train_full['era'] > th]
 test_data = test_full
 raw_features = [col for col in train_full.columns if col.startswith('feature')]
 
@@ -57,25 +59,17 @@ def build_graph(training=True, reuse=False):
 
     print('res-maxpool[3]:', maxpool3.shape)
 
-    # conv4 = tf.layers.conv1d(maxpool3, 16, 4,
-    #                          padding='same',
-    #                          activation=tf.nn.relu,
-    #                          kernel_initializer=xavier_norm_initializer,
-    #                          name='conv4', reuse=reuse)
-    # maxpool4 = tf.layers.max_pooling1d(conv4, 2, 2, padding='same', name='maxpool4')
+    res4 = res_block(maxpool3, 16, 4, reuse=reuse, name='res4')
+    maxpool4 = tf.layers.max_pooling1d(res4, 2, 2, padding='same', name='maxpool4')
 
-    # print('conv-maxpool[4]:', maxpool4.shape)
+    print('res-maxpool[4]:', maxpool4.shape)
 
-    # conv5 = tf.layers.conv1d(maxpool4, 16, 4,
-    #                          padding='same',
-    #                          activation=tf.nn.relu,
-    #                          kernel_initializer=xavier_norm_initializer,
-    #                          name='conv5', reuse=reuse)
-    # maxpool5 = tf.layers.max_pooling1d(conv5, 3, 3, padding='same', name='maxpool5')
+    res5 = res_block(maxpool4, 16, 4, reuse=reuse, name='res5')
+    maxpool5 = tf.layers.max_pooling1d(res5, 2, 2, padding='same', name='maxpool5')
 
-    # print('conv-maxpool[5]:', maxpool5.shape)
+    print('res-maxpool[5]:', maxpool5.shape)
 
-    conv_result = maxpool3
+    conv_result = maxpool5
     print('conv-final:', conv_result.shape)
 
     input_shape = conv_result.shape.as_list()
